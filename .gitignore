@@ -1,0 +1,12 @@
+/.gradle
+/.idea
+/build
+*.iml
+*.ipr
+*.iws
+/resources
+/core/src/main/kotlin/dev/tigr/ttvattendance/Application.kt
+/stats/build
+ttva.secret
+/core/build
+/jvlia
