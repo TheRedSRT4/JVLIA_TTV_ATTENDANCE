@@ -24,6 +24,7 @@ fun main(args: Array<String>) {
     var total = 0 // total number of viewers
     var active = 0 // total number of viewers who have shown up to half of the streams
     var dedicated = 0 // total number of viewers who have came to each of the streams
+    var time = ""
 
     // connect to database
     val database = Database.connect(args[1], driver = "org.postgresql.Driver", user = args[2], password = args[3])
@@ -68,6 +69,13 @@ fun main(args: Array<String>) {
         }}
     }
 
+    transaction(database) {
+        val timeSum = chartTable
+            .slice(chartTable.time.sum())
+            .selectAll()
+            .first()[chartTable.time.sum()]
+        time = timeSum.toString()
+        }
     // remove streamer from data, a bit hacky
     total--
     dedicated--
@@ -79,4 +87,5 @@ fun main(args: Array<String>) {
     println("Number of unique viewers: $total")
     println("Number of active viewers(>50%): $active")
     println("Number of dedicated viewers(100%): $dedicated")
+    println("Number of minutes watched: $time")
 }
