@@ -26,6 +26,7 @@
             <p>updates every 2 min</p>
             <p>Started Tracking on September 15th, 2022</p>
             <p>*Estimated minutes, some might be a couple of minutes in offline chat.*</p>
+            <a href="stats/"><p> View Current Stats HERE</p></a>
         </div>
 
         <div class="position-absolute top-30 start-50 translate-middle-x" style="height: 70%">
