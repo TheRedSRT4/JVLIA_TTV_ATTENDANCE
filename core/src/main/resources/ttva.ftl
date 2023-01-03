@@ -27,7 +27,7 @@
             <p>updates every 2 min</p>
             <p>Started Tracking on January 1st, 2023</p>
             <p>*Estimated minutes, some might be a couple of minutes in offline chat.*</p>
-            <a href="stats/"><p> View Stats Here</p></a>
+            <a href="stats/"><p>View Stats Here</p></a>
         </div>
 
         <div class="position-absolute top-30 start-50 translate-middle-x" style="height: 70%">
