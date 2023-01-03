@@ -22,11 +22,12 @@
 
         <div class="text-center mb-5">
             <h1 class="display-3"><b>Twitch Attendance Chart</b></h1>
-            <h1 class="display-4">${streamer} - <small>Season 1</small></h1>
+            <h1 class="display-4">${streamer} - <small>Season 2</small></h1>
+            <a href="s1/"><p> View Season 1 Results</p></a>
             <p>updates every 2 min</p>
-            <p>Started Tracking on September 15th, 2022</p>
+            <p>Started Tracking on January 1st, 2023</p>
             <p>*Estimated minutes, some might be a couple of minutes in offline chat.*</p>
-            <a href="stats/"><p> View Current Stats HERE</p></a>
+            <a href="stats/"><p> View Stats Here</p></a>
         </div>
 
         <div class="position-absolute top-30 start-50 translate-middle-x" style="height: 70%">
