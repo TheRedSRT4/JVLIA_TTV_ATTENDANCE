@@ -7,6 +7,10 @@ import io.ktor.http.content.*
 import io.ktor.routing.*
 import org.jetbrains.exposed.sql.Database
 import java.io.File
+import java.net.URI
+import java.net.http.HttpClient
+import java.net.http.HttpRequest
+import java.net.http.HttpResponse
 import java.time.Instant
 import java.time.ZoneId
 import java.time.format.DateTimeFormatterBuilder
@@ -14,7 +18,7 @@ import java.time.temporal.ChronoField
 import java.util.*
 import kotlin.math.max
 
-class TtvAttendance(private val streamer: String, private val api: ApiHandler, database: Database, template: String = "ttva.ftl", delay: Long = 120, private val min: Int = 1) {
+class TtvAttendance(private val streamer: String, private val api: ApiHandler, database: Database, template: String = "ttva.ftl", delay: Long = 120, private val min: Int = 1, private val heartbeatkey: String) {
     private val objectMapper = jacksonObjectMapper()
     private val freemarker = Configuration(Configuration.DEFAULT_INCOMPATIBLE_IMPROVEMENTS).also {
         it.templateLoader = ClassTemplateLoader(this::class.java.classLoader, "")
@@ -45,6 +49,12 @@ class TtvAttendance(private val streamer: String, private val api: ApiHandler, d
             while(running && !Thread.interrupted()) {
                 try {
                     val length = update()
+                    //Heartbeat
+                    HttpClient.newBuilder().build()
+                        .send(HttpRequest.newBuilder()
+                            .uri(URI.create("https://betteruptime.com/api/v1/heartbeat/$heartbeatkey"))
+                            .build(), HttpResponse.BodyHandlers.ofString())
+                    println("[TTVA] Heartbeat sent - I'm alive sir")
                     Thread.sleep(max((delay * 1000) - length, 0))
                 } catch(ignored: InterruptedException) {
                 } catch(e: Exception) {

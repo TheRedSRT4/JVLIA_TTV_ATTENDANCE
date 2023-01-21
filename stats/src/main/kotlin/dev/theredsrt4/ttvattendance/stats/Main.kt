@@ -1,8 +1,19 @@
+//THIS IS NOW OBSOLETE
+//IT STILL FUNCTIONS
+//BUT IT IS NO LONGER USED IN FINAL PRODUCTION
+//THIS IS NOW OBSOLETE
+//IT STILL FUNCTIONS
+//BUT IT IS NO LONGER USED IN FINAL PRODUCTION
+//THIS IS NOW OBSOLETE
+//IT STILL FUNCTIONS
+//BUT IT IS NO LONGER USED IN FINAL PRODUCTION
+//THIS IS NOW OBSOLETE
+//IT STILL FUNCTIONS
+//BUT IT IS NO LONGER USED IN FINAL PRODUCTION
 package dev.theredsrt4.ttvattendance.stats
 
 import dev.theredsrt4.ttvattendance.AttendanceTable
 import dev.theredsrt4.ttvattendance.StreamTable
-import io.cronitor.client.CronitorClient
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.transaction
 
